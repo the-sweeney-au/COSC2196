@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Project Idea No.2</title>
+</head>
+    <body>
+        <h1>Directory Services – SpartanDS</h1>
+            <h2>Overview</h2>
+                <p>The premise of SpartanDS is provide an cohesive, open source, cross-platform directory services platform, that is influenced by the X.500/LDAP directory standard. 
+                    SpartanDS would modelled on but not limited to services and functionality provided by Microsoft’s ActiveDirectoy and Novell’s eDirectory (formerly Novell Directory Services).</p>
+            <h2>Motivation</h2>
+                <p>Having had worked with Novell suite of the products in the early 2000’s, I was always have been impressed by the level of integration and ease of management of Novell products, 
+                    with their directory services product eDirectory at the core. This provided centralised administration of all users and services on the network through the use of objects in the 
+                    directory tree. From small and medium businesses networks to large global enterprises, eDirectory made network management relativity simple. It was used from authentication of 
+                    users to user rights management on files and folders,  management of networked printers and their respective print queues on NetWare. It used with the management of desktop 
+                    computers and  installed software with the ZenWorks product. It integrated mailbox and mailing list management with Novell’s GroupWise groupware product.</p>
+            <h2>Description</h2>
+                <p>The core of any directory service like SpartanDS is the database, where all the resources of the network are stored as an domain objects within a tree-like structure. 
+                    This includes but not limited to users, groups, files and folders, servers, printers and print queues.</p>
+                <p>At the top of tree, is the organisation object, where all objects and their containers reside. Organisation Unit containers or context containers are use like branches 
+                    in a tree, that can be used to organise various objects according to their department, location or organisational unit.</p>
+                <p>One of the core features of directory services, is that the database holding all the domain objects is replicated across multiple servers, providing a level of redundancy 
+                    and availability. Typically the whole database would be replicated, but also the tree can be partitioned in such a way that only selected organisational unit containers 
+                    are replicated out to selected servers. These servers for example could be located in branch office, thus minimising WAN link traffic in regards to tree replication, 
+                    providing the all the required branch resource reside within that organisational unit. Tree partitioning used along the lines of continental lines, country, region or 
+                    business units. </p>
+                <p>The directory services database would use scheme extensions to describe what an object is and its characteristics, as well as how it is used. Below is description of 
+                    common objects that typically would be used in SpartanDS.</p>
+                <p>User objects would typically reside within a organisational unit and any permissions assigned to the organisational object, the user object in turn would inherit these 
+                    permissions. Though permissions can be granted to directly to an individually to an user object, it would be discouraged as that organisational units and group objects are for.</p>
+                <p>Groups objects exist in order administer groups of users within an organisational unit, where they would be members of created group. Group object can have permissions granted to 
+                    group object that would apply to members of the group.</p>
+                <p>Files and folders residing on a server would have file\folder objects representing them under a volume object in the tree. The volume object is an container object specific to 
+                    files and folders. An volume object would be associated with an server object where the volume resides on the network. These objects would be used in providing access control 
+                    permissions that can be granted to users, group and organisational objects.</p>
+                <p>Printer object would represent printers on the network would details such as network address, physical location and associated printer queue object. The printer object can be 
+                    also used in holding print driver location for client computers and their respective operating systems. The printer queue object would contain such details on which server the 
+                    print spool resides. The printer/print spool can be used in user access control of the printer resources.</p>
+                <p>Schema extensions can be created by third parties and used to be used in integrating third party systems such as email/groupware systems and even firewalls. This would allow flexibility 
+                    for third parties to extend SpartanDS to allow integrating their products to be managed within the SpartanDS ecosystem.</p>
+            <h2>Tools and Technologies</h2>
+                <p>The heart of the system is the database. Sticking with the goal of the project in being open source, the database system would certainly be open source. The database solution will need 
+                    to be scale-able and cross-platform in order to be considered. The likes of MySQL and MariaDB would be the main contenders, but consideration would be given to Firebird RDBMS, as it was 
+                    used originally by Novell as the base technology for eDirectory. </p>
+                <p>Integration of components from the Samba project will provide support for SMB/CIFS protocol allowing Windows client platforms to connect to server resources natively. Integrating 
+                    with Unix like systems using such protocols as Open Network Computing (ONC) Remote Procedure Call (RPC) and the Network File System (NFS) protocols will provide support for 
+                    unix-like clients such as Linux and BSD systems.</p>
+                <p>But development of an native client/server protocol may required to fully exploit the potential of SpartanDS for end user clients. As this may necessitate development of clients 
+                    for the native protocol though it may not be needed, this would be a long term goal.</p>
+                <p>Creation of plugins or extensions for PHP, as well as Apache and NGINX web servers should allow various web platforms (Wordpress, Joomla, etc…) to take advantage of SpartanDS. 
+                    LDAP compatibility would also facilitate use by web platforms as well email systems.</p>
+            <h2>Skills Required</h2>
+                <p>Many developers with C/C++ programming experience would be required in not only adapting the database engine to requirements, but to developing the application programming interfaces 
+                    require for applications to interact with the directory services. Tools to interact as well as maintain the health of the directory will need to be developed. Programmers with 
+                    experience in different operating systems would be crucial in maintaining cross-platform deployments.</p>
+                <p>Database developers not limited to SQL would be sough to ensure the database behind the directory services is up to task, while being able scale-able as well as reliably replicate directories 
+                    across servers and sites. Durability and performance of the databases under whatever load, availability and integrity  of the directory would be of high importance.</p>
+                <p>Web developers would required to build the web tools to facilitate the administration of directory services provided by SpartanDS. But also to build the tools to allow web developers to build 
+                    websites to take advantage of services provided by SpartanDS.</p>
+                <p>Regardless of the skill set of held by any developer on the project. All developers would need fundamental understanding of security and is aware of the importance of application security in 
+                    the modern world. As the security of the database and it’s contents would be of extremely high importance.</p>
+            <h2>Outcome</h2>
+                <p>If the SpartanDS came into being and was successful, it would enable multiple systems across multiple platforms to be integrated and easily managed, by providing a centralised point of administration. 
+                    This would make management of users and their resources across multiple platforms a whole lot easier with reduced management overhead. With an absence of an integrated open sourced product, the 
+                    creation of SpartanDS would provide an open source competitor to Microsoft’s ActiveDirectory.</p>
+            
+            <a href="https://the-sweeney-au.github.io/COSC2196/"><h2> Back Home</h2></a>
+    </body>
+</html> 
